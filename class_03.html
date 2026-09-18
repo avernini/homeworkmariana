@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MÉTODO FALA – Masterclass: Third Person Singular (Unit 1: The -S Rule)</title>
+<!-- Tailwind CSS & Phosphor Icons -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          deepBlue: '#0F172A',
+          bodyLight: '#F8FAFC',
+          orangeAction: '#C2410C',
+          orangeHover: '#EA580C',
+          darkSlate: '#334155',
+          softSand: '#F1F5F9',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
+  body { font-family: 'Inter', sans-serif; }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+  .section { display: none; animation: fadeUp .35s ease; }
+  .section.active { display: block; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .perspective-1000 { perspective: 1000px; }
+  .transform-style-3d { transform-style: preserve-3d; }
+  .backface-hidden { backface-visibility: hidden; }
+  .rotate-y-180 { transform: rotateY(180deg); }
+</style>
+</head>
+<body class="bg-deepBlue text-darkSlate min-h-screen text-[17px] antialiased">
+
+<!-- HEADER FALA -->
+<header class="bg-deepBlue sticky top-0 z-50 border-b border-slate-800 shadow-md">
+  <div class="max-w-[1000px] mx-auto px-6 py-4 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <div class="flex-shrink-0">
+        <button onclick="resetSimulation()" class="cursor-pointer hover:opacity-95 text-left focus:outline-none">
+          <span class="text-white font-bold tracking-wider text-lg mono">MÉTODO <span class="text-orangeAction">FALA</span></span>
+        </button>
+      </div>
+      <div class="h-6 w-[1px] bg-slate-700 hidden sm:block"></div>
+      <div class="hidden sm:block">
+        <h1 class="text-base font-bold text-white tracking-wide">Third Person Singular · Unit 1 (The -S Rule)</h1>
+        <p class="text-xs text-slate-400">Interactive Masterclass · He, She, It (Affirmative, Negative, Questions)</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mono" id="progressLabel">Step 1 / 5</span>
+      <div class="w-24 sm:w-32 h-2.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700">
+        <div class="h-full bg-orangeAction rounded-full transition-all duration-300" id="progressFill" style="width:20%"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN WORKSPACE -->
+<div class="bg-bodyLight w-full min-h-[calc(100vh-69px)]">
+  <main class="max-w-[1000px] mx-auto px-6 py-8 pb-24">
+
+    <!-- STEP 1 – WARM-UP & SCENARIO HOOK -->
+    <div class="section active" id="sec1">
+      <span class="inline-block text-xs font-bold tracking-widest text-orangeAction uppercase bg-orange-50 px-3 py-1 rounded-full mb-3 border border-orange-100">Step 1: Scenario Hook &amp; Warm-up (5-8 min)</span>
+      <h2 class="text-3xl font-bold text-deepBlue mb-2 leading-tight">Describing Other People's Routines (Unit 1)</h2>
+      <p class="text-base text-slate-500 mb-6 leading-relaxed">When talking about **he, she, or it**, regular verbs in affirmative sentences simply take an <strong>-s</strong>. Negatives use <strong>doesn't</strong> and questions use <strong>Does</strong>. Let's explore how professional habits shape daily routines.</p>
+
+      <!-- HERO IMAGE BANNER -->
+      <div class="w-full h-56 rounded-2xl overflow-hidden mb-6 shadow-sm border border-slate-200">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="Professional routines and work habits" class="w-full h-full object-cover">
+      </div>
+
+      <!-- NARRATIVE CONTEXT BOX -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-6 space-y-3">
+        <div class="flex items-center justify-between border-b pb-3 text-xs font-mono text-slate-400">
+          <span>NARRATIVE CONTEXT · LUCAS &amp; MATEUS</span>
+          <button onclick="playManagerPrompt('sample-dialogue', this)" class="text-orangeAction hover:underline flex items-center gap-1 cursor-pointer"><i class="ph-bold ph-speaker-high"></i> Listen</button>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          <strong>Lucas</strong> works as a freelance developer. He starts his day early, checks his emails at 8 AM, and manages projects from home. His partner, <strong>Mateus</strong>, doesn't work remotely; he commutes to an office downtown. Mateus loves his job, but he doesn't like heavy traffic in the morning.
+        </p>
+        <div id="sample-dialogue" class="hidden">
+          Lucas works as a freelance developer. He starts his day early, checks his emails at 8 AM, and manages projects from home. His partner, Mateus, doesn't work remotely; he commutes to an office downtown. Mateus loves his job, but he doesn't like heavy traffic in the morning.
+        </div>
+      </div>
+
+      <!-- WARM-UP DISCUSSION BOX (Adapted for beginner level) -->
+      <div class="bg-slate-900 text-white rounded-2xl p-6 shadow-md mb-6 border border-slate-800 space-y-4">
+        <div class="flex items-center gap-2 text-orangeAction font-bold uppercase tracking-wider text-xs font-mono">
+          <i class="ph-bold ph-chats-teardrop text-base animate-pulse"></i> Warm-up Questions (Talking About Others)
+        </div>
+        <div class="space-y-2.5 font-mono text-xs sm:text-sm text-slate-200 leading-relaxed">
+          <p>💬 <strong>1.</strong> Does a friend work at home?</p>
+          <p>💬 <strong>2.</strong> What time does your mother or father wake up?</p>
+          <p>💬 <strong>3.</strong> Does your best friend drink coffee?</p>
+          <p>💬 <strong>4.</strong> What computer or phone does your brother use?</p>
+          <p>💬 <strong>5.</strong> Does your partner like sports?</p>
+        </div>
+      </div>
+
+      <div class="flex justify-end">
+        <button class="bg-orangeAction hover:bg-orangeHover text-white font-semibold px-6 py-2.5 rounded-lg flex items-center gap-2 transition-colors shadow-sm text-sm cursor-pointer" onclick="goTo(2)">Next: Vocabulary Lab <i class="ph ph-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- STEP 2 – 10 FLASHCARDS VOCABULARY LAB -->
+    <div class="section" id="sec2">
+      <span class="inline-block text-xs font-bold tracking-widest text-orangeAction uppercase bg-orange-50 px-3 py-1 rounded-full mb-3 border border-orange-100">Step 2: Vocabulary Lab (8-10 min)</span>
+      <h2 class="text-2xl font-bold text-deepBlue mb-2">Routine Verbs &amp; Professional Actions</h2>
+      <p class="text-slate-500 mb-6 text-sm leading-relaxed">Explore essential third-person action verbs featuring the simple **-s** rule to describe daily schedules and habits. Click any card to inspect definitions and contextual examples:</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 mb-6" id="flashcardsGrid"></div>
+
+      <div class="flex justify-between items-center">
+        <button class="bg-white hover:bg-slate-100 text-deepBlue font-medium px-5.5 py.5 rounded-lg border border-slate-200 flex items-center gap-1.5 transition-colors text-sm cursor-pointer" onclick="goTo(1)"><i class="ph ph-arrow-left"></i> Back</button>
+        <button class="bg-orangeAction hover:bg-orangeHover text-white font-semibold px-6 py.5 rounded-lg flex items-center gap-2 transition-colors shadow-sm text-sm cursor-pointer" onclick="goTo(3)">Next: Grammar Calibration <i class="ph ph-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- STEP 3 – GRAMMAR CALIBRATION -->
+    <div class="section" id="sec3">
+      <span class="inline-block text-xs font-bold tracking-widest text-orangeAction uppercase bg-orange-50 px-3 py-1 rounded-full mb-3 border border-orange-100">Step 3: Grammar Calibration (10-12 min)</span>
+      <h2 class="text-2xl font-bold text-deepBlue mb-2">Grammar Focus: Unit 1 (The Simple -s Rule, Doesn't &amp; Does)</h2>
+      <p class="text-slate-500 mb-6 text-sm">Let's master how verbs take **-s** in affirmative sentences, how **doesn't** builds negatives, and how **Does** forms questions:</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 text-xs">
+        <!-- AFFIRMATIVE -->
+        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-2">
+          <span class="font-bold text-emerald-700 block uppercase font-mono tracking-wider text-[10px]">1. Affirmative (+) [Verb + -s]</span>
+          <p class="text-slate-600 leading-relaxed font-medium">Describing habits:</p>
+          <div class="p-2.5 bg-slate-50 rounded border font-mono text-[11px] text-slate-700 space-y-1">
+            <p>• He work<strong>s</strong> from home.</p>
+            <p>• She start<strong>s</strong> early.</p>
+            <p>• He love<strong>s</strong> his job.</p>
+          </div>
+        </div>
+
+        <!-- NEGATIVE -->
+        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-2">
+          <span class="font-bold text-rose-700 block uppercase font-mono tracking-wider text-[10px]">2. Negative (-) [Doesn't + verb]</span>
+          <p class="text-slate-600 leading-relaxed font-medium">Denying routines:</p>
+          <div class="p-2.5 bg-slate-50 rounded border font-mono text-[11px] text-slate-700 space-y-1">
+            <p>• He <strong>doesn't</strong> work in an office.</p>
+            <p>• She <strong>doesn't</strong> like traffic.</p>
+            <p>• He <strong>doesn't</strong> stop early.</p>
+          </div>
+        </div>
+
+        <!-- INTERROGATIVE -->
+        <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-2">
+          <span class="font-bold text-sky-700 block uppercase font-mono tracking-wider text-[10px]">3. Interrogative (?) [Does + subject]</span>
+          <p class="text-slate-600 leading-relaxed font-medium">Asking questions:</p>
+          <div class="p-2.5 bg-slate-50 rounded border font-mono text-[11px] text-slate-700 space-y-1">
+            <p>• <strong>Does</strong> he work remotely?</p>
+            <p>• <strong>Does</strong> she like coffee?</p>
+            <p>• <strong>Does</strong> he live downtown?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOSSILIZED ERROR GUARD -->
+      <div class="bg-white border border-slate-200 rounded-xl mb-6 shadow-sm overflow-hidden">
+        <div class="bg-deepBlue px-4 py-2 flex items-center gap-2 border-b border-slate-800">
+          <i class="ph ph-shield-warning text-lg text-orangeAction"></i>
+          <span class="text-xs font-bold text-white uppercase font-mono tracking-wide">Fossilized Error Guard (Precision Check)</span>
+        </div>
+        <div class="p-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
+          <div class="bg-rose-50/60 p-3 rounded-lg border border-rose-100">
+            <span class="text-rose-700 font-bold block uppercase text-[10px] mb-1">❌ COMMON MISTAKE</span>
+            <p class="line-through text-slate-500">"He doesn't works on weekends." (double verb inflection)</p>
+            <p class="line-through text-slate-500 mt-0.5">"Does she works here?" (adding -s after 'does')</p>
+          </div>
+          <div class="bg-emerald-50/60 p-3 rounded-lg border border-emerald-100">
+            <span class="text-emerald-700 font-bold block uppercase text-[10px] mb-1">🟢 CORRECT STRUCTURE</span>
+            <p class="font-bold text-slate-800">"He <strong>doesn't work</strong> on weekends."</p>
+            <p class="font-bold text-slate-800 mt-0.5">"<strong>Does</strong> she <strong>work</strong> here?"</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE GRAMMAR DRILLS -->
+      <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm mb-6 space-y-4">
+        <h4 class="text-xs font-bold font-mono text-slate-400 uppercase tracking-wider">Interactive Grammar Training (4 Challenges)</h4>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs space-y-1.5" id="g-q-1">
+          <p class="font-semibold text-slate-800">1. "Lucas ______ emails every morning at 8 AM." (Third person affirmative)</p>
+          <div class="flex gap-2">
+            <button onclick="markGrammarDrill(1, 'correct', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">checks</button>
+            <button onclick="markGrammarDrill(1, 'wrong', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">check</button>
+          </div>
+          <p class="feedback hidden text-[11px] font-bold"></p>
+        </div>
+
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs space-y-1.5" id="g-q-2">
+          <p class="font-semibold text-slate-800">2. "Mateus ______ commute to an office downtown." (Negative auxiliary)</p>
+          <div class="flex gap-2">
+            <button onclick="markGrammarDrill(2, 'correct', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">doesn't</button>
+            <button onclick="markGrammarDrill(2, 'wrong', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">don't</button>
+          </div>
+          <p class="feedback hidden text-[11px] font-bold"></p>
+        </div>
+
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs space-y-1.5" id="g-q-3">
+          <p class="font-semibold text-slate-800">3. "______ your partner like working from home?" (Question auxiliary)</p>
+          <div class="flex gap-2">
+            <button onclick="markGrammarDrill(3, 'correct', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">Does</button>
+            <button onclick="markGrammarDrill(3, 'wrong', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">Do</button>
+          </div>
+          <p class="feedback hidden text-[11px] font-bold"></p>
+        </div>
+
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs space-y-1.5" id="g-q-4">
+          <p class="font-semibold text-slate-800">4. "He ______ stop working before 6 PM." (Negative form)</p>
+          <div class="flex gap-2">
+            <button onclick="markGrammarDrill(4, 'correct', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">doesn't</button>
+            <button onclick="markGrammarDrill(4, 'wrong', this)" class="bg-white border border-slate-200 px-3 py-1.5 rounded-lg hover:border-orangeAction hover:bg-orange-50 font-medium font-mono text-slate-700 transition-all cursor-pointer">don't</button>
+          </div>
+          <p class="feedback hidden text-[11px] font-bold"></p>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <button class="bg-white hover:bg-slate-100 text-deepBlue font-medium px-5.5 py.5 rounded-lg border border-slate-200 flex items-center gap-1.5 transition-colors text-sm cursor-pointer" onclick="goTo(2)"><i class="ph ph-arrow-left"></i> Back</button>
+        <button class="bg-orangeAction hover:bg-orangeHover text-white font-semibold px-6 py.5 rounded-lg flex items-center gap-2 transition-colors shadow-sm text-sm cursor-pointer" onclick="goTo(4)">Next: Strategic Case Files <i class="ph ph-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- STEP 4 – STRATEGIC CASE FILES -->
+    <div class="section" id="sec4">
+      <span class="inline-block text-xs font-bold tracking-widest text-orangeAction uppercase bg-orange-50 px-3 py-1 rounded-full mb-3 border border-orange-100">Step 4: Strategic Case Files (15-18 min)</span>
+      <h2 class="text-2xl font-bold text-deepBlue mb-2">Routine &amp; Lifestyle Scenarios (5 Cases)</h2>
+      <p class="text-slate-500 mb-6 text-sm">Select one of the 5 scenarios below to load its visual context. Use the clean question prompts to guide your conversation with the student using the third person:</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-6">
+        <div class="md:col-span-4 space-y-2 flex flex-col">
+          <span class="text-xs font-bold text-slate-400 uppercase font-mono block">Choose Scenario:</span>
+          
+          <button onclick="triggerDilemmaScenario('remote')" id="btn-scen-remote" class="w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer">
+            <span class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 border"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=200&q=80" alt="" class="w-full h-full object-cover"></span>
+            <div><strong class="text-deepBlue block">1. Remote Work</strong><span class="text-slate-400">Working from home</span></div>
+          </button>
+
+          <button onclick="triggerDilemmaScenario('morning')" id="btn-scen-morning" class="w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer">
+            <span class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 border"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=200&q=80" alt="" class="w-full h-full object-cover"></span>
+            <div><strong class="text-deepBlue block">2. Early Morning</strong><span class="text-slate-400">Starting the day</span></div>
+          </button>
+
+          <button onclick="triggerDilemmaScenario('commute')" id="btn-scen-commute" class="w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer">
+            <span class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 border"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=200&q=80" alt="" class="w-full h-full object-cover"></span>
+            <div><strong class="text-deepBlue block">3. Office Commute</strong><span class="text-slate-400">Traveling downtown</span></div>
+          </button>
+
+          <button onclick="triggerDilemmaScenario('hobbies')" id="btn-scen-hobbies" class="w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer">
+            <span class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 border"><img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=200&q=80" alt="" class="w-full h-full object-cover"></span>
+            <div><strong class="text-deepBlue block">4. Evening Hobbies</strong><span class="text-slate-400">Sports &amp; fitness</span></div>
+          </button>
+
+          <button onclick="triggerDilemmaScenario('weekend')" id="btn-scen-weekend" class="w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer">
+            <span class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 border"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=200&q=80" alt="" class="w-full h-full object-cover"></span>
+            <div><strong class="text-deepBlue block">5. Weekend Habits</strong><span class="text-slate-400">Relaxing &amp; friends</span></div>
+          </button>
+        </div>
+
+        <div class="md:col-span-8 space-y-4">
+          <div id="dilemma-data-panel" class="hidden rounded-xl bg-white border border-slate-200 text-xs leading-relaxed shadow-sm overflow-hidden">
+            <div class="w-full h-[140px] overflow-hidden"><img id="dilemma-image" src="" alt="" class="w-full h-full object-cover"></div>
+            <div class="p-4">
+              <div class="flex items-center gap-2 mb-2 border-b pb-2">
+                <span id="dilemma-icon" class="text-lg"></span>
+                <strong id="dilemma-title" class="text-deepBlue uppercase tracking-wider font-mono">Scenario Details</strong>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+                <div class="bg-rose-50/40 p-3 rounded-lg border border-rose-100">
+                  <span class="font-bold text-rose-700 block uppercase text-[9px] font-mono mb-1">Situation</span>
+                  <p id="dilemma-pros" class="text-slate-600 font-medium"></p>
+                </div>
+                <div class="bg-emerald-50/40 p-3 rounded-lg border border-emerald-100">
+                  <span class="font-bold text-emerald-700 block uppercase text-[9px] font-mono mb-1">Target Pattern</span>
+                  <p id="dilemma-cons" class="text-slate-600 font-medium"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="teacher-talk-panel" class="hidden p-4 rounded-xl bg-slate-900 border border-slate-800 text-slate-100 text-xs shadow-md">
+            <div class="flex items-center gap-2 text-orangeAction font-bold uppercase tracking-wider text-[10px] mb-2 font-mono">
+              <i class="ph-bold ph-chats-teardrop text-sm animate-pulse"></i> Teacher Questions to Ask the Student (Clean Prompts)
+            </div>
+            <div id="teacher-questions-box" class="space-y-2 font-mono text-white text-xs leading-relaxed bg-slate-950 p-3 rounded-lg border border-slate-800"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-xl p-4 flex justify-between items-center shadow-sm mb-4">
+        <div class="flex gap-3 items-center">
+          <div class="p-2 bg-slate-100 rounded-lg text-base"><i class="ph ph-check-square text-orangeAction"></i></div>
+          <div>
+            <h4 class="text-xs font-bold text-deepBlue">Conversation Simulation Completed</h4>
+            <p class="text-[11px] text-slate-500">Check this box once you finish discussing this scenario with your student.</p>
+          </div>
+        </div>
+        <label class="flex items-center gap-2 cursor-pointer select-none">
+          <input type="checkbox" id="instr-check" onchange="unlockStep5()" class="rounded border-slate-300 text-orangeAction focus:ring-orangeAction w-4 h-4 cursor-pointer">
+          <span class="text-xs font-bold text-slate-600 uppercase">Confirmed</span>
+        </label>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <button class="bg-white hover:bg-slate-100 text-deepBlue font-medium px-5.5 py.5 rounded-lg border border-slate-200 flex items-center gap-1.5 transition-colors text-sm cursor-pointer" onclick="goTo(3)"><i class="ph ph-arrow-left"></i> Back</button>
+        <button id="btn-to-step5" class="bg-orangeAction hover:bg-orangeHover text-white font-semibold px-6 py.5 rounded-lg hidden items-center gap-2 transition-colors shadow-sm text-sm cursor-pointer" onclick="goTo(5)">Next: Sentence Architect <i class="ph ph-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- STEP 5 – SENTENCE ARCHITECT (BLOCKS BUILDER) -->
+    <div class="section" id="sec5">
+      <span class="inline-block text-xs font-bold tracking-widest text-emerald-700 uppercase bg-emerald-50 px-3 py-1 rounded-full mb-3 border border-emerald-100">Step 5: Sentence Architect (10-15 min)</span>
+      <h2 class="text-2xl font-bold text-deepBlue mb-2">Syntax Builder: Organizing Third Person Sentences</h2>
+      <p class="text-sm text-slate-500 mb-6">Clique nos blocos de palavras na ordem correta para montar a frase em inglês na terceira pessoa (Unidade 1):</p>
+
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-6 space-y-6">
+        <div class="flex items-center justify-between border-b pb-3">
+          <span class="text-xs font-mono font-bold text-orangeAction uppercase" id="builder-counter">Sentence 1 of 3</span>
+          <span class="text-xs font-mono text-slate-400">Target: Third Person Syntax (-s rule)</span>
+        </div>
+
+        <div>
+          <span class="text-xs font-mono text-slate-500 block mb-1">Portuguese Reference:</span>
+          <p id="builder-target-ref" class="text-sm sm:text-base font-semibold text-deepBlue bg-slate-50 p-3 rounded-xl border border-slate-200">
+            Carregando referência...
+          </p>
+        </div>
+
+        <!-- SLOT DROP ZONE -->
+        <div>
+          <span class="text-xs font-mono text-slate-500 block mb-1">Your Built Sentence (Click tiles to assemble):</span>
+          <div id="builder-slot-zone" class="min-h-[60px] p-3 bg-slate-900 rounded-xl border border-slate-800 flex flex-wrap gap-2 items-center"></div>
+        </div>
+
+        <!-- AVAILABLE TILES -->
+        <div>
+          <span class="text-xs font-mono text-slate-500 block mb-1">Available Tiles:</span>
+          <div id="builder-tiles-zone" class="min-h-[60px] p-3 bg-slate-100 rounded-xl border border-slate-200 flex flex-wrap gap-2 items-center"></div>
+        </div>
+
+        <div class="flex justify-between items-center pt-2">
+          <button onclick="resetCurrentSentence()" class="bg-white hover:bg-slate-100 text-deepBlue border border-slate-200 text-xs font-semibold px-4 py-2 rounded-lg transition-all cursor-pointer">
+            Reset Tiles
+          </button>
+          <button onclick="checkBuiltSentence()" class="bg-orangeAction hover:bg-orangeHover text-white text-xs font-semibold px-6 py-2.5 rounded-lg transition-all shadow cursor-pointer">
+            Check Sentence
+          </button>
+        </div>
+
+        <div id="builder-feedback" class="hidden p-3 rounded-xl text-xs font-mono"></div>
+      </div>
+
+      <div class="bg-slate-900 text-white rounded-xl p-5 text-center shadow-md border border-slate-800">
+        <h4 class="text-sm font-bold mb-1 font-mono uppercase tracking-wider text-orangeAction">Save Learning Progress</h4>
+        <p class="text-xs text-slate-400 mb-4 leading-relaxed">Ready to complete Unit 1?</p>
+        <button onclick="alert('Unit 1 completed successfully! Excellent command of the -s rule, doesn\'t and does!')" class="inline-flex items-center gap-2 bg-white hover:bg-slate-100 text-deepBlue text-xs font-bold uppercase px-5 py-2.5 rounded-lg transition-all shadow font-mono cursor-pointer">
+          Finish Unit 1 Masterclass <i class="ph ph-check"></i>
+        </button>
+      </div>
+
+      <div class="flex justify-start mt-4">
+        <button class="bg-white hover:bg-slate-100 text-deepBlue font-medium px-5.5 py.5 rounded-lg border border-slate-200 flex items-center gap-1.5 transition-colors text-sm cursor-pointer" onclick="goTo(4)"><i class="ph ph-arrow-left"></i> Back</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- SCRIPT LOGIC -->
+<script>
+let currentSection = 1;
+
+const flashcardsData = [
+  { en: "Works", def: "He / She / It is employed or performs a job.", ex: "Lucas works from home.", img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80" },
+  { en: "Starts", def: "Begins an action or schedule at a specific time.", ex: "She starts her day early.", img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=400&q=80" },
+  { en: "Checks", def: "Looks at something to examine or inspect it.", ex: "He checks emails every morning.", img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=400&q=80" },
+  { en: "Loves", def: "Feels a deep affection or liking for something.", ex: "He loves his new job.", img: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=400&q=80" },
+  { en: "Lives", def: "Has its permanent home in a particular place.", ex: "He lives downtown.", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80" },
+  { en: "Needs", def: "Requires something because it is essential.", ex: "She needs a break.", img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" },
+  { en: "Wants", def: "Has a desire to possess or do something.", ex: "He wants to learn more.", img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=400&q=80" },
+  { en: "Speaks", def: "Says words in order to express thoughts.", ex: "She speaks two languages.", img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=400&q=80" },
+  { en: "Doesn't like", def: "Negative preference for something (he/she/it).", ex: "She doesn't like heavy traffic.", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80" },
+  { en: "Helps", def: "Makes it easier for someone to do something.", ex: "He helps his colleagues.", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=400&q=80" }
+];
+
+function renderFlashcards() {
+  const grid = document.getElementById('flashcardsGrid');
+  grid.innerHTML = '';
+  flashcardsData.forEach((card, idx) => {
+    let wrapper = document.createElement('div');
+    wrapper.className = "perspective-1000 w-full h-64 cursor-pointer";
+    wrapper.onclick = function() {
+      this.querySelector('.card-inner').classList.toggle('rotate-y-180');
+    };
+    wrapper.innerHTML = `
+      <div class="card-inner relative w-full h-full duration-500 transform-style-3d shadow-sm rounded-xl">
+        <div class="absolute inset-0 w-full h-full bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col justify-between backface-hidden">
+          <div class="h-28 w-full overflow-hidden"><img src="${card.img}" alt="${card.en}" class="w-full h-full object-cover"></div>
+          <div class="p-3 flex flex-col justify-between flex-1">
+            <div class="flex items-center justify-between">
+              <span class="text-[9px] font-mono text-slate-400 uppercase">#${idx+1} · Click</span>
+              <button onclick="event.stopPropagation(); audioSpeak('${card.en}')" class="w-6 h-6 rounded-full bg-orange-50 text-orangeAction flex items-center justify-center hover:bg-orangeAction hover:text-white transition-colors cursor-pointer">
+                <i class="ph-bold ph-speaker-high text-xs"></i>
+              </button>
+            </div>
+            <div class="text-center"><h4 class="text-deepBlue font-mono font-bold text-xs">${card.en}</h4></div>
+          </div>
+        </div>
+        <div class="absolute inset-0 w-full h-full bg-deepBlue text-white rounded-xl p-4 flex flex-col justify-between backface-hidden rotate-y-180">
+          <div class="flex items-center justify-between">
+            <span class="text-[9px] font-mono text-orangeAction uppercase">Simple -S Verb</span>
+            <span class="text-[9px] font-mono text-slate-400">Level A1-A2</span>
+          </div>
+          <div class="space-y-1.5 text-left">
+            <p class="text-[11px] text-slate-200 leading-snug"><strong>Meaning:</strong> ${card.def}</p>
+            <p class="text-[11px] text-orange-300 italic leading-snug"><strong>Ex:</strong> "${card.ex}"</p>
+          </div>
+          <div class="text-center"><span class="text-[9px] text-slate-400 italic">Back Side</span></div>
+        </div>
+      </div>
+    `;
+    grid.appendChild(wrapper);
+  });
+}
+document.addEventListener('DOMContentLoaded', renderFlashcards);
+
+function audioSpeak(word) {
+  window.speechSynthesis.cancel();
+  const tts = new SpeechSynthesisUtterance(word);
+  tts.lang = 'en-US';
+  tts.rate = 0.85;
+  window.speechSynthesis.speak(tts);
+}
+
+function markGrammarDrill(qNum, status, btn) {
+  const row = document.getElementById('g-q-' + qNum);
+  const fb = row.querySelector('.feedback');
+  fb.classList.remove('hidden');
+  row.querySelectorAll('button').forEach(b => b.className = "bg-white border px-3 py-1.5 rounded-lg text-slate-700 font-medium text-xs border-slate-200 hover:bg-slate-50 transition-all cursor-pointer");
+
+  if (status === 'correct') {
+    btn.className = "bg-emerald-50 border border-emerald-400 text-emerald-800 font-semibold px-3 py-1.5 rounded-lg text-xs";
+    fb.className = "feedback text-[11px] font-bold text-emerald-600 mt-1";
+    fb.textContent = "✓ Correct! Great job!";
+  } else {
+    btn.className = "bg-rose-50 border border-rose-400 text-rose-800 font-semibold px-3 py-1.5 rounded-lg text-xs";
+    fb.className = "feedback text-[11px] font-bold text-rose-600 mt-1";
+    fb.textContent = "✗ Incorrect. Try again.";
+  }
+}
+
+const dilemmaScenariosData = {
+  remote: {
+    icon: "💻",
+    title: "1. Remote Work",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80",
+    pros: "Describing remote work habits and home office schedules.",
+    cons: "Target Pattern: 'Lucas works from home and manages his schedule.'",
+    questions: [
+      "1. Does Lucas work from home?",
+      "2. What time does he start his workday?",
+      "3. Does he check his emails in the morning?",
+      "4. What software does he use for projects?",
+      "5. Does he like working remotely?"
+    ],
+    btnId: "btn-scen-remote"
+  },
+  morning: {
+    icon: "🌅",
+    title: "2. Early Morning",
+    image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1000&q=80",
+    pros: "Talking about morning routines and wake-up habits.",
+    cons: "Target Pattern: 'He wakes up early and drinks coffee at 7 AM.'",
+    questions: [
+      "1. What time does your partner wake up?",
+      "2. Does he or she drink coffee in the morning?",
+      "3. Does your friend exercise before work?",
+      "4. How does he start his daily routine?",
+      "5. Does she feel energetic in the morning?"
+    ],
+    btnId: "btn-scen-morning"
+  },
+  commute: {
+    icon: "🚗",
+    title: "3. Office Commute",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80",
+    pros: "Describing travel to work and traffic preferences.",
+    cons: "Target Pattern: 'Mateus commutes downtown, but he doesn't like traffic.'",
+    questions: [
+      "1. Does Mateus work in an office downtown?",
+      "2. How does he commute to work?",
+      "3. Does he like the morning traffic?",
+      "4. What time does he arrive at the office?",
+      "5. Does he prefer public transport or driving?"
+    ],
+    btnId: "btn-scen-commute"
+  },
+  hobbies: {
+    icon: "⚽",
+    title: "4. Evening Hobbies",
+    image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1000&q=80",
+    pros: "Talking about sports, fitness, and evening activities.",
+    cons: "Target Pattern: 'He plays tennis on Tuesdays and enjoys fitness.'",
+    questions: [
+      "1. What sport does your friend play?",
+      "2. Does he go to the gym after work?",
+      "3. How often does she practice sports?",
+      "4. Does he enjoy outdoor activities?",
+      "5. What time does he finish his workout?"
+    ],
+    btnId: "btn-scen-hobbies"
+  },
+  weekend: {
+    icon: "👥",
+    title: "5. Weekend Habits",
+    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1000&q=80",
+    pros: "Describing how someone relaxes on weekends.",
+    cons: "Target Pattern: 'She visits her family on Sundays and relaxes.'",
+    questions: [
+      "1. What does your friend do on Saturdays?",
+      "2. Does she visit her family on weekends?",
+      "3. Where does he travel during holidays?",
+      "4. Does he cook special meals on Sundays?",
+      "5. Does she relax or study on weekends?"
+    ],
+    btnId: "btn-scen-weekend"
+  }
+};
+
+function triggerDilemmaScenario(key) {
+  const data = dilemmaScenariosData[key];
+  document.querySelectorAll('[id^="btn-scen-"]').forEach(b => {
+    b.className = "w-full text-left bg-white border border-slate-200 hover:border-orangeAction p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all cursor-pointer";
+  });
+  document.getElementById(data.btnId).className = "w-full text-left bg-orangeAction border border-orangeAction text-white p-2.5 rounded-xl text-xs flex items-center gap-3 transition-all font-semibold shadow-sm cursor-pointer";
+
+  document.getElementById('dilemma-data-panel').classList.remove('hidden');
+  document.getElementById('teacher-talk-panel').classList.remove('hidden');
+
+  document.getElementById('dilemma-image').src = data.image;
+  document.getElementById('dilemma-icon').textContent = data.icon;
+  document.getElementById('dilemma-title').textContent = data.title;
+  document.getElementById('dilemma-pros').textContent = data.pros;
+  document.getElementById('dilemma-cons').textContent = data.cons;
+
+  const qBox = document.getElementById('teacher-questions-box');
+  qBox.innerHTML = data.questions.map(q => `<p class="font-medium p-1">• ${q}</p>`).join('');
+  document.getElementById('dilemma-data-panel').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function unlockStep5() {
+  const checked = document.getElementById('instr-check').checked;
+  const btn = document.getElementById('btn-to-step5');
+  if (checked) {
+    btn.classList.remove('hidden');
+    btn.classList.add('inline-flex');
+  } else {
+    btn.classList.add('hidden');
+    btn.classList.remove('inline-flex');
+  }
+}
+
+// STEP 5: BLOCKS BUILDER SENTENCES
+const builderSentences = [
+  {
+    ref: "Lucas trabalha em casa todos os dias.",
+    correct: ["Lucas", "works", "from", "home", "every", "day."],
+    shuffled: ["from", "day.", "Lucas", "works", "home", "every"]
+  },
+  {
+    ref: "Mateus não gosta de trânsito pesado.",
+    correct: ["Mateus", "doesn't", "like", "heavy", "traffic."],
+    shuffled: ["like", "traffic.", "Mateus", "doesn't", "heavy"]
+  },
+  {
+    ref: "Ele vive no centro da cidade?",
+    correct: ["Does", "he", "live", "downtown?"],
+    shuffled: ["live", "downtown?", "Does", "he"]
+  }
+];
+
+let currentBuilderIdx = 0;
+
+function loadBuilderSentence() {
+  const item = builderSentences[currentBuilderIdx];
+  document.getElementById('builder-counter').textContent = `Sentence ${currentBuilderIdx + 1} of ${builderSentences.length}`;
+  document.getElementById('builder-target-ref').textContent = item.ref;
+  
+  const slotZone = document.getElementById('builder-slot-zone');
+  const tilesZone = document.getElementById('builder-tiles-zone');
+  slotZone.innerHTML = '';
+  tilesZone.innerHTML = '';
+  
+  document.getElementById('builder-feedback').classList.add('hidden');
+
+  item.shuffled.forEach((word) => {
+    let tile = document.createElement('button');
+    tile.className = "bg-white hover:bg-orange-50 border border-slate-300 text-deepBlue font-mono text-xs px-3 py-2 rounded-lg shadow-sm transition-all cursor-pointer";
+    tile.textContent = word;
+    tile.onclick = function() {
+      if (tile.parentElement === tilesZone) {
+        slotZone.appendChild(tile);
+      } else {
+        tilesZone.appendChild(tile);
+      }
+    };
+    tilesZone.appendChild(tile);
+  });
+}
+
+function resetCurrentSentence() {
+  loadBuilderSentence();
+}
+
+function checkBuiltSentence() {
+  const slotZone = document.getElementById('builder-slot-zone');
+  const userWords = Array.from(slotZone.children).map(t => t.textContent);
+  const correctWords = builderSentences[currentBuilderIdx].correct;
+  
+  const fb = document.getElementById('builder-feedback');
+  fb.classList.remove('hidden');
+
+  const isMatch = userWords.length === correctWords.length && userWords.every((w, i) => w === correctWords[i]);
+
+  if (isMatch) {
+    fb.className = "p-3 rounded-xl text-xs font-mono bg-emerald-50 border border-emerald-300 text-emerald-900";
+    fb.textContent = "✓ Correct syntax! Perfect third person block assembly.";
+    setTimeout(() => {
+      currentBuilderIdx++;
+      if (currentBuilderIdx < builderSentences.length) {
+        loadBuilderSentence();
+      } else {
+        document.getElementById('builder-counter').textContent = "All Sentences Completed! 🎉";
+        document.getElementById('builder-target-ref').textContent = "Parabéns! Você concluiu com excelência todos os blocos da Unidade 1.";
+      }
+    }, 1800);
+  } else {
+    fb.className = "p-3 rounded-xl text-xs font-mono bg-rose-50 border border-rose-300 text-rose-900";
+    fb.textContent = "✗ Not quite right. Check word order and try again.";
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadBuilderSentence);
+
+function playManagerPrompt(id, btn) {
+  window.speechSynthesis.cancel();
+  const script = document.getElementById(id).textContent;
+  const tts = new SpeechSynthesisUtterance(script);
+  tts.lang = 'en-US';
+  tts.rate = 0.85;
+  tts.onend = () => { btn.innerHTML = '<i class="ph-bold ph-speaker-high"></i> Listen'; };
+  window.speechSynthesis.speak(tts);
+}
+
+function goTo(n) {
+  document.getElementById('sec' + currentSection).classList.remove('active');
+  currentSection = n;
+  document.getElementById('sec' + n).classList.add('active');
+  document.getElementById('progressFill').style.width = (n * 20) + '%';
+  document.getElementById('progressLabel').textContent = 'Step ' + n + ' / 5';
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function resetSimulation() {
+  location.reload();
+}
+</script>
+</body>
+</html>
